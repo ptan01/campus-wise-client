@@ -5,6 +5,7 @@ import Main from './leyout/Main.jsx'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import Home from './page/home/Home'
 import Collage from './page/collage/Collage'
+import Details from './page/details/Details'
 
 const router = createBrowserRouter([
   {
@@ -18,6 +19,11 @@ const router = createBrowserRouter([
       {
         path: '/collage',
         element: <Collage></Collage>
+      },
+      {
+        path: '/collage/:id',
+        element: <Details></Details>,
+        loader: ({params})=> fetch(`http://localhost:5000/collage/${params.id}`)
       }
     ]
   }

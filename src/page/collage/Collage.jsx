@@ -26,7 +26,7 @@ const Collage = () => {
                 </button>
             </div>
 
-            <div>
+            <div className="grid lg:grid-cols-2 gap-5">
                 {collages.map(collage => <CollageCard key={collage._id} collage={collage}></CollageCard>)}
             </div>
         </div>
