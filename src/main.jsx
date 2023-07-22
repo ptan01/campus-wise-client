@@ -6,11 +6,12 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import Home from './page/home/Home'
 import Collage from './page/collage/Collage'
 import Details from './page/details/Details'
+import SearchDataProvider from './provider/searchDataProvider'
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element : <Main></Main>,
+    element: <Main></Main>,
     children: [
       {
         path: '/',
@@ -23,7 +24,7 @@ const router = createBrowserRouter([
       {
         path: '/collage/:id',
         element: <Details></Details>,
-        loader: ({params})=> fetch(`http://localhost:5000/collage/${params.id}`)
+        loader: ({ params }) => fetch(`http://localhost:5000/collage/${params.id}`)
       }
     ]
   }
@@ -31,6 +32,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <RouterProvider router={router}></RouterProvider>
+    <SearchDataProvider>
+      <RouterProvider router={router}></RouterProvider>
+    </SearchDataProvider>
   </React.StrictMode>,
 )

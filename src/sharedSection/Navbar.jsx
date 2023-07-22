@@ -1,8 +1,23 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { SearchContext } from "../provider/searchDataProvider";
 
 const Navbar = () => {
 
 
+    // const [inputValue, setInputValue] = useState('');
+    const { setSearchData } = useContext(SearchContext)
+
+
+    const handleChange = (event) => {
+        const text = event.target.value;
+        if (text.length > 0) {
+            fetch(`http://localhost:5000/collage/search/${text}`)
+                .then(res => res.json())
+                .then(data => setSearchData(data))
+        }
+        console.log(event.target.value);
+    };
 
 
     const navItem = <>
@@ -32,7 +47,7 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="">
-                    <input type="text" placeholder="Search" className="input input-bordered w-24 md:w-auto" />
+                    <input type="text" onChange={handleChange} placeholder="Search" className="input input-bordered w-24 md:w-auto" />
                 </div>
                 <div className="navbar-end">
                     <a className="btn">Login</a>
