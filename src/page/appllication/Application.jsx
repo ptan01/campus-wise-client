@@ -1,10 +1,15 @@
+import { useContext } from "react";
 import { useLoaderData } from "react-router-dom";
+import { AuthContext } from "../../provider/AuthProvider";
 
 const Application = () => {
 
+    const {user} = useContext(AuthContext)
     const appliedCollage = useLoaderData()
 
     console.log(appliedCollage)
+
+    console.log(user)
 
 
     return (

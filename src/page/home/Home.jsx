@@ -9,7 +9,6 @@ const Home = () => {
 
     console.log(searchData)
 
-
     return (
         <div>
             <div className="grid lg:grid-cols-2 gap-4">

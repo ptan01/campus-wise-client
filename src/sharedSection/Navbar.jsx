@@ -1,11 +1,12 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { SearchContext } from "../provider/searchDataProvider";
+import { AuthContext } from "../provider/AuthProvider";
 
 const Navbar = () => {
 
+    const {user} = useContext(AuthContext)
 
-    // const [inputValue, setInputValue] = useState('');
     const { setSearchData } = useContext(SearchContext)
 
 
@@ -57,7 +58,7 @@ const Navbar = () => {
                     <input type="text" onBlur={handleChange} placeholder="Search Collage" className="input input-bordered w-24 md:w-auto" />
                 </div>
                 <div className="navbar-end">
-                    <a className="btn">Login</a>
+                    {user ? <Link to="/userProfile">{user?.email}</Link> : <Link to='/login' className="btn">Login</Link>}
                 </div>
             </div>
         </nav>

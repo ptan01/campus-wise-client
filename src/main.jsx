@@ -9,6 +9,9 @@ import Details from './page/details/Details'
 import SearchDataProvider from './provider/searchDataProvider'
 import Admission from './page/admission/Admission'
 import Application from './page/appllication/Application'
+import Login from './login&registerPage/Login'
+import Register from './login&registerPage/Register'
+import AuthProvider from './provider/AuthProvider'
 
 const router = createBrowserRouter([
   {
@@ -30,12 +33,20 @@ const router = createBrowserRouter([
       },
       {
         path: '/admission',
-        element:<Admission></Admission>
+        element: <Admission></Admission>
       },
       {
         path: '/admission/:id',
         element: <Application></Application>,
-        loader: ({params})=> fetch(`http://localhost:5000/admissions/${params.id}`)
+        loader: ({ params }) => fetch(`http://localhost:5000/admissions/${params.id}`)
+      },
+      {
+        path: '/login',
+        element: <Login></Login>
+      },
+      {
+        path: '/register',
+        element: <Register></Register>
       }
     ]
   }
@@ -43,8 +54,10 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <SearchDataProvider>
-      <RouterProvider router={router}></RouterProvider>
-    </SearchDataProvider>
+    <AuthProvider>
+      <SearchDataProvider>
+        <RouterProvider router={router}></RouterProvider>
+      </SearchDataProvider>
+    </AuthProvider>
   </React.StrictMode>,
 )
