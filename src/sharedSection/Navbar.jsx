@@ -58,7 +58,7 @@ const Navbar = () => {
                     <input type="text" onBlur={handleChange} placeholder="Search Collage" className="input input-bordered w-24 md:w-auto" />
                 </div>
                 <div className="navbar-end">
-                    {user ? <Link to="/userProfile">{user?.email}</Link> : <Link to='/login' className="btn">Login</Link>}
+                    {user ? <Link to="/userProfile" className="btn">{user?.displayName}</Link> : <Link to='/login' className="btn">Login</Link>}
                 </div>
             </div>
         </nav>
