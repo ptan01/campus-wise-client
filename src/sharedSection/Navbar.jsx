@@ -11,11 +11,18 @@ const Navbar = () => {
 
     const handleChange = (event) => {
         const text = event.target.value;
-        if (text.length > 0) {
+        
+        if(text.length === 0){
+            setSearchData([])
+        }else {
             fetch(`http://localhost:5000/collage/search/${text}`)
                 .then(res => res.json())
-                .then(data => setSearchData(data))
+                .then(data => {
+                    setSearchData(data)
+                    
+                })
         }
+       
         console.log(event.target.value);
     };
 
@@ -23,7 +30,7 @@ const Navbar = () => {
     const navItem = <>
         <li><Link to='/'>Home</Link></li>
         <li><Link to='/collage'>Collage</Link></li>
-        <li><a>Admission</a></li>
+        <li><Link to='/admission'>Admission</Link></li>
         <li><a>My Collage</a></li>
     </>
 
@@ -47,7 +54,7 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="">
-                    <input type="text" onChange={handleChange} placeholder="Search" className="input input-bordered w-24 md:w-auto" />
+                    <input type="text" onBlur={handleChange} placeholder="Search Collage" className="input input-bordered w-24 md:w-auto" />
                 </div>
                 <div className="navbar-end">
                     <a className="btn">Login</a>

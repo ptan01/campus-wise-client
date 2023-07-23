@@ -2,6 +2,7 @@ import axios from "axios";
 import { useState } from "react";
 import { useEffect } from "react";
 import CollageCard from "./CollageCard";
+import SimpleBanner from "../../sharedSection/SimpleBanner";
 
 const Collage = () => {
 
@@ -18,13 +19,9 @@ const Collage = () => {
 
     return (
         <div>
-            <div className="bg-blue-500 text-white p-4 rounded-lg shadow-md">
-                <p className="text-center font-bold text-2xl mb-2">Choice your Best Collage</p>
-                <p className="text-center text-lg">Explore, Compare, and Reserve Your Ideal College</p>
-                <button className="mt-4 py-2 px-4 bg-white text-blue-500 font-semibold rounded-lg shadow-md hover:bg-blue-100">
-                    Admission
-                </button>
-            </div>
+            <SimpleBanner heading="Choice your Best Collage" subHeading="Explore, Compare, and Reserve Your Ideal College"></SimpleBanner>
+            
+            
 
             <div className="grid lg:grid-cols-2 gap-5">
                 {collages.map(collage => <CollageCard key={collage._id} collage={collage}></CollageCard>)}

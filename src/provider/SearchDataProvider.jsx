@@ -5,7 +5,7 @@ export const SearchContext = createContext()
 
 const SearchDataProvider = ({children}) => {
 
-    const [searchData, setSearchData] = useState({})
+    const [searchData, setSearchData] = useState([])
 
     const dataInfo = {
         searchData,
