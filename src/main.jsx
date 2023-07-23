@@ -8,6 +8,7 @@ import Collage from './page/collage/Collage'
 import Details from './page/details/Details'
 import SearchDataProvider from './provider/searchDataProvider'
 import Admission from './page/admission/Admission'
+import Application from './page/appllication/Application'
 
 const router = createBrowserRouter([
   {
@@ -30,6 +31,11 @@ const router = createBrowserRouter([
       {
         path: '/admission',
         element:<Admission></Admission>
+      },
+      {
+        path: '/admission/:id',
+        element: <Application></Application>,
+        loader: ({params})=> fetch(`http://localhost:5000/admissions/${params.id}`)
       }
     ]
   }
