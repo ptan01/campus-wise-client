@@ -12,6 +12,7 @@ import Application from './page/appllication/Application'
 import Login from './login&registerPage/Login'
 import Register from './login&registerPage/Register'
 import AuthProvider from './provider/AuthProvider'
+import MyCollage from './page/myCollage/MyCollage'
 
 const router = createBrowserRouter([
   {
@@ -39,6 +40,10 @@ const router = createBrowserRouter([
         path: '/admission/:id',
         element: <Application></Application>,
         loader: ({ params }) => fetch(`http://localhost:5000/admissions/${params.id}`)
+      },
+      {
+        path: '/my-collage',
+        element: <MyCollage></MyCollage>
       },
       {
         path: '/login',

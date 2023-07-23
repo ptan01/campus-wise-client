@@ -32,7 +32,7 @@ const Navbar = () => {
         <li><Link to='/'>Home</Link></li>
         <li><Link to='/collage'>Collage</Link></li>
         <li><Link to='/admission'>Admission</Link></li>
-        <li><a>My Collage</a></li>
+        <li><Link to='/my-collage'>My Collage</Link></li>
     </>
 
     return (

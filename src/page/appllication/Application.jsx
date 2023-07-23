@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider";
+import axios from "axios";
 
 const Application = () => {
 
@@ -29,7 +30,13 @@ const Application = () => {
             collage: appliedCollage.name ,
             collageLoaction: appliedCollage.location
         }
-        console.log(admissionData)
+        axios.post('http://localhost:5000/submitApplication', admissionData)
+        .then(res =>{
+            console.log(res.data.insertedId)
+        })
+        .catch(err =>{
+            console.log(err.message)
+        })
         
     }
     console.log(appliedCollage)
