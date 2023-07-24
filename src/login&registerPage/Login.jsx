@@ -1,10 +1,12 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
+import { FaGoogle } from 'react-icons/fa';
+import Swal from "sweetalert2";
 
 const Login = () => {
 
-    const { loginUser } = useContext(AuthContext)
+    const { loginUser, googleLogin } = useContext(AuthContext)
 
     const handleLogin = (e) => {
         e.preventDefault()
@@ -13,11 +15,36 @@ const Login = () => {
         loginUser(email, pass)
             .then(result => {
                 console.log(result.user)
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'Login Successfully',
+                    showConfirmButton: false,
+                    timer: 1500
+                  })
             })
             .catch(err => {
                 console.log(err.message)
             })
         console.log(email, pass)
+    }
+
+    const handleGoogleLogin =(e)=>{
+        e.preventDefault()
+        googleLogin()
+        .then(result => {
+            console.log(result)
+            Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                title: 'Google Login Successfully',
+                showConfirmButton: false,
+                timer: 1500
+              })
+        })
+        .catch(err => {
+            console.log(err.message)
+        })
     }
 
 
@@ -50,6 +77,10 @@ const Login = () => {
                         <div className="form-control mt-6">
                             <button className="btn btn-primary">Login</button>
                         </div>
+                        <button onClick={handleGoogleLogin} className="btn mt-5 gap-2">
+                            With Google
+                            <FaGoogle />
+                        </button>
                     </form>
                 </div>
             </div>
