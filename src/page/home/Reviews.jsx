@@ -12,7 +12,7 @@ const Reviews = () => {
     const [reviewsCollages, setReviewsCollage] = useState([])
 
     useEffect(() => {
-        axios('http://localhost:5000/reviewCollage')
+        axios('https://campus-wise-server-ptan01.vercel.app/reviewCollage')
             .then(res => {
                 console.log(res.data)
                 setReviewsCollage(res.data)

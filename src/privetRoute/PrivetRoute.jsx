@@ -9,11 +9,11 @@ const PrivetRoute = ({children}) => {
     if(loading){
         return <span className="loading loading-bars loading-lg"></span>
     }
-    if(!user){
-        <Navigate to='/login'></Navigate>
+    if(user){
+       return children 
     }
 
-    return children
+    return <Navigate to='/login'></Navigate>
 };
 
 export default PrivetRoute;

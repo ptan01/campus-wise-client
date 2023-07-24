@@ -11,7 +11,7 @@ const MyCollage = () => {
     const [myCollages, setMyCollages] = useState([])
 
     useEffect(()=>{
-        axios.get(`http://localhost:5000/submitApplication/${user?.email}`)
+        axios.get(`https://campus-wise-server-ptan01.vercel.app/submitApplication/${user?.email}`)
         .then(res=>{
             setMyCollages(res.data)
         })

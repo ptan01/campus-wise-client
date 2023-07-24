@@ -7,7 +7,7 @@ const PopularCollage = () => {
     const [popularCollages, setPopularCollages] = useState([])
 
     useEffect(() => {
-        axios('http://localhost:5000/popularCollage')
+        axios('https://campus-wise-server-ptan01.vercel.app/popularCollage')
             .then(res => {
                 console.log(res.data)
                 setPopularCollages(res.data)

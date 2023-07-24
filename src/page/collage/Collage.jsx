@@ -9,7 +9,7 @@ const Collage = () => {
     const [collages, setCollages] = useState([])
 
     useEffect(() => {
-        axios('http://localhost:5000/collage')
+        axios('https://campus-wise-server-ptan01.vercel.app/collage')
             .then(res => {
                 setCollages(res.data)
             })

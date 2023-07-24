@@ -33,7 +33,7 @@ const router = createBrowserRouter([
       {
         path: '/collage/:id',
         element: <Details></Details>,
-        loader: ({ params }) => fetch(`http://localhost:5000/collage/${params.id}`)
+        loader: ({ params }) => fetch(`https://campus-wise-server-ptan01.vercel.app/collage/${params.id}`)
       },
       {
         path: '/admission',
@@ -42,7 +42,7 @@ const router = createBrowserRouter([
       {
         path: '/admission/:id',
         element: <Application></Application>,
-        loader: ({ params }) => fetch(`http://localhost:5000/admissions/${params.id}`)
+        loader: ({ params }) => fetch(`https://campus-wise-server-ptan01.vercel.app/admissions/${params.id}`)
       },
       {
         path: '/my-collage',
@@ -51,7 +51,7 @@ const router = createBrowserRouter([
       {
         path: '/popularCollageDetails/:id',
         element: <PrivetRoute><PopularCollageDetails></PopularCollageDetails></PrivetRoute>,
-        loader: ({params}) => fetch(`http://localhost:5000/popularCollage/${params.id}`)
+        loader: ({params}) => fetch(`https://campus-wise-server-ptan01.vercel.app/popularCollage/${params.id}`)
       },
       {
         path: '/userProfile',

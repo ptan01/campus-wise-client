@@ -16,7 +16,7 @@ const Navbar = () => {
         if(text.length === 0){
             setSearchData([])
         }else {
-            fetch(`http://localhost:5000/collage/search/${text}`)
+            fetch(`https://campus-wise-server-ptan01.vercel.app/collage/search/${text}`)
                 .then(res => res.json())
                 .then(data => {
                     setSearchData(data)

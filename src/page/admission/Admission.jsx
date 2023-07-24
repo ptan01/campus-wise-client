@@ -8,7 +8,7 @@ const Admission = () => {
     const [admissions, setAdmissions] = useState([])
 
     useEffect(() => {
-        fetch('http://localhost:5000/admissions')
+        fetch('https://campus-wise-server-ptan01.vercel.app/admissions')
             .then(res => res.json())
             .then(data => {
                 console.log(data)

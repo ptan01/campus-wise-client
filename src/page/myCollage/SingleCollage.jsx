@@ -32,7 +32,7 @@ const SingleCollage = ({ collageData }) => {
                     email,
                     rating: newValue
                 }
-                axios.post('http://localhost:5000/reviewCollage', collageData)
+                axios.post('https://campus-wise-server-ptan01.vercel.app/reviewCollage', collageData)
                     .then(res => {
                         if (res.data.insertedId) {
                             Swal.fire(

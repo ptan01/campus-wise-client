@@ -31,7 +31,7 @@ const Application = () => {
             collage: appliedCollage.name ,
             collageLoaction: appliedCollage.location
         }
-        axios.post('http://localhost:5000/submitApplication', admissionData)
+        axios.post('https://campus-wise-server-ptan01.vercel.app/submitApplication', admissionData)
         .then(res =>{
             if(res.data.insertedId){
                 Swal.fire({
