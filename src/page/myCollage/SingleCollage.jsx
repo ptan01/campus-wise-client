@@ -1,6 +1,8 @@
 import { Rating } from '@smastrom/react-rating';
 import { useState } from 'react';
 import '@smastrom/react-rating/style.css'
+import Swal from 'sweetalert2';
+import axios from 'axios';
 
 
 const SingleCollage = ({ collageData }) => {
@@ -10,8 +12,44 @@ const SingleCollage = ({ collageData }) => {
     const [rating, setRating] = useState(0);
 
     const ratingValue = (newValue) => {
-        console.log(newValue);
         setRating(newValue);
+        Swal.fire({
+            title: 'Are you sure to rate this collage ?',
+            text: "Your feedback is improve our collage!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, Send Feedback!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                const collageData = {
+                    name,
+                    subject,
+                    collage,
+                    collageLoaction,
+                    address,
+                    email,
+                    rating: newValue
+                }
+                axios.post('http://localhost:5000/reviewCollage', collageData)
+                    .then(res => {
+                        if (res.data.insertedId) {
+                            Swal.fire(
+                                'Success!',
+                                'Your Feedback Send Successfully.',
+                                'success'
+                            )
+                        }
+                    })
+                    .catch(err =>{
+                        console.log(err.message)
+                    })
+
+            }
+        })
+        console.log(newValue);
+
     }
 
 

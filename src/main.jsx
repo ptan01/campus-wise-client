@@ -13,6 +13,7 @@ import Login from './login&registerPage/Login'
 import Register from './login&registerPage/Register'
 import AuthProvider from './provider/AuthProvider'
 import MyCollage from './page/myCollage/MyCollage'
+import PrivetRoute from './privetRoute/PrivetRoute'
 
 const router = createBrowserRouter([
   {
@@ -43,7 +44,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/my-collage',
-        element: <MyCollage></MyCollage>
+        element: <PrivetRoute><MyCollage></MyCollage></PrivetRoute>
       },
       {
         path: '/login',

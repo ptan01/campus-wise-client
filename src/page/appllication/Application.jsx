@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider";
 import axios from "axios";
+import Swal from "sweetalert2";
 
 const Application = () => {
 
@@ -32,7 +33,16 @@ const Application = () => {
         }
         axios.post('http://localhost:5000/submitApplication', admissionData)
         .then(res =>{
-            console.log(res.data.insertedId)
+            if(res.data.insertedId){
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'Your work has been saved',
+                    showConfirmButton: false,
+                    timer: 1500
+                  })
+            }
+            from.reset()
         })
         .catch(err =>{
             console.log(err.message)
