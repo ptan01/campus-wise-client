@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 import { FaGoogle } from 'react-icons/fa';
@@ -6,7 +6,8 @@ import Swal from "sweetalert2";
 
 const Login = () => {
 
-    const { loginUser, googleLogin } = useContext(AuthContext)
+    const { loginUser, googleLogin,resetEmail } = useContext(AuthContext)
+    const [emailValue, setEmailValue] = useState('')
 
     const handleLogin = (e) => {
         e.preventDefault()
@@ -47,6 +48,40 @@ const Login = () => {
         })
     }
 
+    const handlePass =(e)=>{
+        e.preventDefault()
+        const email = emailValue.target.value
+        if(!email){
+            Swal.fire({
+                position: 'top-end',
+                icon: 'error',
+                title: "please fill the email field",
+                showConfirmButton: false,
+                timer: 1500
+              })
+              return
+        }
+        resetEmail(email)
+        .then(()=>{
+            Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                title: 'Password Reset email send ',
+                showConfirmButton: false,
+                timer: 1500
+              })
+        })
+        .catch(err => {
+            Swal.fire({
+                position: 'top-end',
+                icon: 'error',
+                title: {err},
+                showConfirmButton: false,
+                timer: 1500
+              })
+        })
+
+    }
 
 
     return (
@@ -59,7 +94,7 @@ const Login = () => {
                             <label className="label">
                                 <span className="label-text">Email</span>
                             </label>
-                            <input type="email" name="email" placeholder="email" className="input input-bordered" />
+                            <input type="email" name="email" onChange={setEmailValue} placeholder="email" className="input input-bordered" required />
                         </div>
                         <div className="form-control">
                             <label className="label">
@@ -67,7 +102,7 @@ const Login = () => {
                             </label>
                             <input type="password" name="password" placeholder="password" className="input input-bordered" />
                             <label className="label">
-                                <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
+                                <a href="#" onClick={handlePass} className="label-text-alt link link-hover">Forgot password?</a>
                             </label>
                             <label className="label">
                                 <p className="label-text-alt">New here please <Link className="link link-hover" to="/register">Register</Link></p>
