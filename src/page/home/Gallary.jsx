@@ -2,7 +2,7 @@
 const Gallary = () => {
     return (
         <div className="my-20">
-            <h1 className="text-4xl font-bold text-blue-500 text-center my-10">Our graduate's group pictures.</h1>
+            <h1 className="text-4xl font-bold text-blue-500 text-center my-10">Our graduates group pictures.</h1>
             <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-4">
                 <div>
                     <img className="max-w-[400px] h-[250px] rounded-xl" src="https://www.chinadaily.com.cn/photo/images/attachement/jpg/site1/20130523/0023ae9885da1307d26d16.jpg" alt="" />
