@@ -14,6 +14,8 @@ import Register from './login&registerPage/Register'
 import AuthProvider from './provider/AuthProvider'
 import MyCollage from './page/myCollage/MyCollage'
 import PrivetRoute from './privetRoute/PrivetRoute'
+import PopularCollageDetails from './page/home/PopularCollageDetails'
+import UserProfile from './page/userProfile/UserProfile'
 
 const router = createBrowserRouter([
   {
@@ -45,6 +47,15 @@ const router = createBrowserRouter([
       {
         path: '/my-collage',
         element: <PrivetRoute><MyCollage></MyCollage></PrivetRoute>
+      },
+      {
+        path: '/popularCollageDetails/:id',
+        element: <PrivetRoute><PopularCollageDetails></PopularCollageDetails></PrivetRoute>,
+        loader: ({params}) => fetch(`http://localhost:5000/popularCollage/${params.id}`)
+      },
+      {
+        path: '/userProfile',
+        element: <UserProfile></UserProfile>
       },
       {
         path: '/login',

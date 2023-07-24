@@ -3,6 +3,7 @@ import Banner from "./Banner";
 import { SearchContext } from "../../provider/searchDataProvider";
 import CollageCard from "../collage/CollageCard";
 import Reviews from "./Reviews";
+import PopularCollage from "./PopularCollage";
 
 const Home = () => {
 
@@ -18,6 +19,7 @@ const Home = () => {
                 }
             </div>
             <Banner></Banner>
+            <PopularCollage></PopularCollage>
             <Reviews></Reviews>
         </div>
     );
