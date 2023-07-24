@@ -1,12 +1,25 @@
+import { Rating } from '@smastrom/react-rating';
+import { useState } from 'react';
+import '@smastrom/react-rating/style.css'
+
 
 const SingleCollage = ({ collageData }) => {
     const { name, subject, email, number, address, photo, date, collage, collageLoaction } = collageData;
 
+
+    const [rating, setRating] = useState(0);
+
+    const ratingValue = (newValue) => {
+        console.log(newValue);
+        setRating(newValue);
+    }
+
+
     return (
-        <div className="card w-96 bg-base-100 shadow-xl image-full">
-            <figure><img src={photo} alt="Shoes" /></figure>
+        <div className="card lg:card-side bg-base-100 shadow-xl">
+            <figure><img src={photo} alt="Album" /></figure>
             <div className="card-body">
-            <h2 className="card-title">{collage}</h2>
+                <h2 className="card-title">{collage}</h2>
                 <p>Location:{collageLoaction}</p>
                 <p>Name:{name}</p>
                 <p>Subject:{subject}</p>
@@ -15,7 +28,13 @@ const SingleCollage = ({ collageData }) => {
                 <p>Phone:{number}</p>
                 <p>Admission Date:{date}</p>
                 <div className="card-actions justify-end">
-                    <button className="btn btn-primary">Buy Now</button>
+
+                    <Rating
+                        style={{ maxWidth: 140, color: "orange" }}
+                        value={rating}
+                        onChange={ratingValue}
+                        transition="zoom"
+                    />
                 </div>
             </div>
         </div>
@@ -23,3 +42,4 @@ const SingleCollage = ({ collageData }) => {
 };
 
 export default SingleCollage;
+

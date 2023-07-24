@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
 import axios from "axios";
 import SingleCollage from "./SingleCollage";
+import SimpleBanner from "../../sharedSection/SimpleBanner";
 
 const MyCollage = () => {
 
@@ -23,9 +24,9 @@ const MyCollage = () => {
 
     return (
         <div>
-            <h1>thsi is my collage</h1> 
+            <SimpleBanner heading="Your Selected Admission Collage" subHeading="you can send rating to improve our collage"></SimpleBanner>
 
-            <div className="grid lg:grid-cols-3 md:grid-cols-2">
+            <div className="grid lg:grid-cols-2 gap-4">
                 {myCollages.map(collage=> <SingleCollage key={collage._id} collageData={collage}></SingleCollage>)}
             </div>           
         </div>
