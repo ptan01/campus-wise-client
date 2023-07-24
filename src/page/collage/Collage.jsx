@@ -18,7 +18,7 @@ const Collage = () => {
     console.log(collages)
 
     return (
-        <div>
+        <div className="min-h-screen">
             <SimpleBanner heading="Choice your Best Collage" subHeading="Explore, Compare, and Reserve Your Ideal College"></SimpleBanner>
             
             

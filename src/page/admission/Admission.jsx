@@ -17,9 +17,9 @@ const Admission = () => {
     }, [])
 
     return (
-        <div>
+        <div className="min-h-screen">
             <SimpleBanner heading="Available Admission Collage" subHeading="Your Journey to Higher Education Starts Here"></SimpleBanner>
-            <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-4">
+            <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-4 mt-20">
                 {
                     admissions.map((admission) => <div key={admission._id} className="card max-w-96 bg-base-100 shadow-xl">
                         <div className="card-body">

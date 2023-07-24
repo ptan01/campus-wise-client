@@ -23,7 +23,7 @@ const MyCollage = () => {
     console.log(myCollages)
 
     return (
-        <div>
+        <div className="min-h-screen">
             <SimpleBanner heading="Your Selected Admission Collage" subHeading="you can send rating to improve our collage"></SimpleBanner>
 
             <div className="grid lg:grid-cols-2 gap-4">
